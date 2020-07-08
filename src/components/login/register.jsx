@@ -4,6 +4,11 @@ import loginImg from "../../Login.gif";
 export class Register extends React.Component {
   constructor(props) {
     super(props);
+    this.inputRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.inputRef.current.focus();
   }
 
   render() {
@@ -17,7 +22,12 @@ export class Register extends React.Component {
           <div className="form">
             <div className="form-group">
               <label htmlFor="username">Username</label>
-              <input type="text" name="username" placeholder="username" />
+              <input
+                type="text"
+                name="username"
+                placeholder="username"
+                ref={this.inputRef}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
@@ -27,7 +37,6 @@ export class Register extends React.Component {
               <label htmlFor="password">Password</label>
               <input type="text" name="password" placeholder="password" />
             </div>
-            
           </div>
         </div>
         <div className="footer">
